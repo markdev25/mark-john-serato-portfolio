@@ -9,12 +9,13 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
     fs: {
-      allow: ["./client", "./shared"],
+      allow: [".", "./client", "./shared", "/node_modules"],
       deny: [".env", ".env.*", "*.{crt,pem}", "**/.git/**", "server/**"],
     },
   },
   build: {
     outDir: "dist/spa",
+    base: "/mark-john-serato-portfolio/",
   },
   plugins: [react(), expressPlugin()],
   resolve: {
